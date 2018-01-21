@@ -1,9 +1,9 @@
-const express = require("express");
+const express = require('express');
 const app = express();
 
-app.get("/", (req, res) => {
+app.get('/', (req, res) => {
     console.log(req);
-    res.send({ hi: "there" });
+    res.send({ bye: 'buddy' });
 });
 
 // Dynamic Port Binding
