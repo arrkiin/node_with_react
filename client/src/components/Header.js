@@ -1,17 +1,9 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Payments from './Payments';
 
 class Header extends Component {
-    static get propTypes() {
-        const result = {};
-        Object.keys(mapStateToProps).forEach(action => {
-            result[action] = PropTypes.object;
-        });
-        return result;
-    }
     renderContent() {
         switch (this.props.auth) {
             case null:
@@ -60,6 +52,10 @@ const mapStateToProps = ({ auth }) => {
     return {
         auth,
     };
+};
+
+Header.propTypes = {
+    ...Object.keys(mapStateToProps),
 };
 
 export default connect(mapStateToProps)(Header);

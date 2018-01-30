@@ -1,17 +1,10 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import StripeCheckout from 'react-stripe-checkout';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import { PropTypes } from 'prop-types';
 
 class Payments extends Component {
-    static get propTypes() {
-        const result = {};
-        Object.keys(actions).forEach(action => {
-            result[action] = PropTypes.func;
-        });
-        return result;
-    }
     render() {
         return (
             <StripeCheckout
@@ -26,5 +19,14 @@ class Payments extends Component {
         );
     }
 }
+
+const actionsFuncs = {};
+Object.keys(actions).forEach(action => {
+    actionsFuncs[action] = PropTypes.func;
+});
+
+Payments.propTypes = {
+    ...actionsFuncs,
+};
 
 export default connect(null, actions)(Payments);
