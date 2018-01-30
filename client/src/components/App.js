@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
@@ -10,13 +9,6 @@ import Dashboard from './Dashboard';
 import SurveyNew from './surveys/SurveyNew';
 
 class App extends Component {
-    static get propTypes() {
-        const result = {};
-        Object.keys(actions).forEach(action => {
-            result[action] = PropTypes.func;
-        });
-        return result;
-    }
     componentDidMount() {
         this.props.fetchUser();
     }

@@ -1,20 +1,21 @@
 module.exports = {
     env: {
         browser: true,
-        es6: true,
+        es6: true
     },
     extends: [
         'eslint:recommended',
         'plugin:react/recommended',
-        'plugin:jest/recommended',
+        'plugin:jest/recommended'
     ],
+    parser: 'babel-eslint',
     parserOptions: {
         ecmaVersion: 8, // async-await
         ecmaFeatures: {
             experimentalObjectRestSpread: true,
-            jsx: true,
+            jsx: true
         },
-        sourceType: 'module',
+        sourceType: 'module'
     },
     plugins: ['react', 'jest'],
     rules: {
@@ -23,5 +24,6 @@ module.exports = {
         quotes: ['error', 'single'],
         semi: ['error', 'always'],
         'comma-dangle': ['error', 'always-multiline'],
-    },
+        'react/prop-types': [2,'skipUndeclared']
+    }
 };

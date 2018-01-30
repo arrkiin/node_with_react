@@ -24,7 +24,7 @@ class Header extends Component {
                     </li>,
                     <li key="logout">
                         <a href="/api/logout">Logout</a>
-                    </li>,
+                    </li>
                 ];
         }
     }
@@ -50,12 +50,8 @@ class Header extends Component {
 
 const mapStateToProps = ({ auth }) => {
     return {
-        auth,
+        auth
     };
-};
-
-Header.propTypes = {
-    ...Object.keys(mapStateToProps),
 };
 
 export default connect(mapStateToProps)(Header);
