@@ -48,7 +48,7 @@ class SurveyForm extends Component {
 
 const validate = values => {
     const errors = {};
-    errors.emails = validateEmails(values.emails || '');
+    errors.recipients = validateEmails(values.recipients || '');
     formFields.forEach(({ name, label, required }) => {
         if (required && !values[name]) {
             errors[name] = `You must provide ${label}`;
@@ -60,5 +60,5 @@ const validate = values => {
 export default reduxForm({
     validate: validate,
     form: 'surveyForm',
-    destroyOnUnmount: false
+    destroyOnUnmount: false,
 })(SurveyForm);
